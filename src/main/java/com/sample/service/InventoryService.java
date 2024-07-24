@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sample.entity.Inventory;
+import com.sample.entity.ReqBody;
 import com.sample.repository.InventoryRepository;
 
 @Service
@@ -17,9 +18,28 @@ public class InventoryService {
     }
     
     /*Create operation*/
-    public void addInventory(Inventory inventory) {
-    	inventoryRepo.save(inventory);
-    	System.out.println(inventory.getCategory());
+    public void addInventory(ReqBody inventory) {
+    	Inventory newInventory = new Inventory();
+    	newInventory.setDate(inventory.getDate());
+    	newInventory.setSku(inventory.getSku());
+    	newInventory.setDescription(inventory.getDescription());
+    	newInventory.setCategory_id(inventory.getCategory_id());
+    	newInventory.setName(inventory.getName());
+    	newInventory.setPurchasinginformation(inventory.getPurchasinginformation());
+    	newInventory.setReorder(inventory.getReorder());
+    	newInventory.setDescription(inventory.getDescription());
+    	newInventory.setAsset_account_id(inventory.getAsset_account_id());
+    	newInventory.setIncome_account_id(inventory.getIncome_account_id());
+    	newInventory.setCost(Double.valueOf(inventory.getCost()));
+        newInventory.setPreferred_vendor_id(inventory.getPreferred_vendor_id());
+        newInventory.setQuantity(Integer.valueOf(inventory.getQuantity()));
+        newInventory.setReorder(String.valueOf(inventory.getReorder()));
+        newInventory.setSalesprice(Double.valueOf(inventory.getSalesprice()));
+        newInventory.setSalestax(Double.valueOf(inventory.getSalestax()));
+        newInventory.setExpense_account_id(inventory.getExpense_account_id());
+    	inventoryRepo.save(newInventory);
+    	
+//    	inventoryRepo.save(inventory);
     	System.out.println("Inventory data added successfully");
     }
     
@@ -28,21 +48,21 @@ public class InventoryService {
     	Inventory existingInventory = inventoryRepo.findById(id).orElse(null);
     	
     	if (existingInventory != null) {
-    		existingInventory.setAssetAccount(updatedInventory.getAssetAccount());
+    		existingInventory.setAsset_account_id(updatedInventory.getAsset_account_id());
     		existingInventory.setDate(updatedInventory.getDate());
     		existingInventory.setName(updatedInventory.getName());
     		existingInventory.setSku(updatedInventory.getSku());
-    		existingInventory.setCategory(updatedInventory.getCategory());
+    	    existingInventory.setCategory_id(updatedInventory.getCategory_id());
     		existingInventory.setQuantity(updatedInventory.getQuantity());
     		existingInventory.setReorder(updatedInventory.getReorder());
     		existingInventory.setDescription(updatedInventory.getDescription());
     		existingInventory.setSalesprice(updatedInventory.getSalesprice());
-    		existingInventory.setIncomeAccount(updatedInventory.getIncomeAccount());
+    		existingInventory.setIncome_account_id(updatedInventory.getIncome_account_id());
     		existingInventory.setSalestax(updatedInventory.getSalestax());
     		existingInventory.setPurchasinginformation(updatedInventory.getPurchasinginformation());
     		existingInventory.setCost(updatedInventory.getCost());
-    		existingInventory.setExpenseAccount(updatedInventory.getExpenseAccount());
-    		existingInventory.setPreferredVendor(updatedInventory.getPreferredVendor());
+    		existingInventory.setExpense_account_id(updatedInventory.getExpense_account_id());
+    		existingInventory.setPreferred_vendor_id(updatedInventory.getPreferred_vendor_id());
     		inventoryRepo.save(existingInventory);
     		System.out.println("Inventory data updated successfully");	
     	}

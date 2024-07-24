@@ -1,12 +1,9 @@
 package com.sample.service;
 
-
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.sample.entity.*;
 import com.sample.repository.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -17,16 +14,16 @@ public class DropdownService {
     private CategoryRepository categoryRepository;
 
     @Autowired
-    private AssetaccountRepository assetAccountRepository;
+    private AssetaccountRepository assetaccountRepository;
 
     @Autowired
-    private IncomeaccountRepository incomeAccountRepository;
+    private IncomeaccountRepository incomeaccountRepository;
 
     @Autowired
-    private ExpenseaccountRepository expenseAccountRepository;
+    private ExpenseaccountRepository expenseaccountRepository;
 
     @Autowired
-    private PreferredvendorRepository preferredVendorRepository;
+    private PreferredvendorRepository preferredvendorRepository;
 
     // Category
     public List<Category> getCategories() {
@@ -37,60 +34,78 @@ public class DropdownService {
         return categoryRepository.save(category);
     }
 
+    public Category updateCategory(Category category) {
+        return categoryRepository.save(category);
+    }
+
     public void deleteCategory(int id) {
         categoryRepository.deleteById(id);
     }
 
     // Asset Account
-    public List<Assetaccount> getAssetAccounts() {
-        return assetAccountRepository.findAll();
+    public List<Assetaccount> getAssetaccounts() {
+        return assetaccountRepository.findAll();
     }
 
-    public Assetaccount addAssetAccount(Assetaccount assetAccount) {
-        return assetAccountRepository.save(assetAccount);
+    public Assetaccount addAssetaccount(Assetaccount assetaccount) {
+        return assetaccountRepository.save(assetaccount);
     }
 
-    public void deleteAssetAccount(int id) {
-        assetAccountRepository.deleteById(id);
+    public Assetaccount updateAssetAccount(Assetaccount assetaccount) {
+        return assetaccountRepository.save(assetaccount);
+    }
+
+    public void deleteAssetaccount(int id) {
+        assetaccountRepository.deleteById(id);
     }
 
     // Income Account
-    public List<Incomeaccount> getIncomeAccounts() {
-        return incomeAccountRepository.findAll();
+    public List<Incomeaccount> getIncomeaccounts() {
+        return incomeaccountRepository.findAll();
     }
 
-    public Incomeaccount addIncomeAccount(Incomeaccount incomeAccount) {
-        return incomeAccountRepository.save(incomeAccount);
+    public Incomeaccount addIncomeaccount(Incomeaccount incomeaccount) {
+        return incomeaccountRepository.save(incomeaccount);
     }
 
-    public void deleteIncomeAccount(int id) {
-        incomeAccountRepository.deleteById(id);
+    public Incomeaccount updateIncomeaccount(Incomeaccount incomeaccount) {
+        return incomeaccountRepository.save(incomeaccount);
     }
 
-    // Expense Account
-    public List<Expenseaccount> getExpenseAccounts() {
-        return expenseAccountRepository.findAll();
+    public void deleteIncomeaccount(int id) {
+        incomeaccountRepository.deleteById(id);
     }
 
-    public Expenseaccount addExpenseAccount(Expenseaccount expenseAccount) {
-        return expenseAccountRepository.save(expenseAccount);
+ // Expense Account
+    public List<Expenseaccount> getExpenseaccounts() {
+        return expenseaccountRepository.findAll();
     }
 
-    public void deleteExpenseAccount(int id) {
-        expenseAccountRepository.deleteById(id);
+    public Expenseaccount addExpenseaccount(Expenseaccount expenseaccount) {
+        return expenseaccountRepository.save(expenseaccount);
     }
 
+    public Expenseaccount updateExpenseaccount(Expenseaccount expenseaccount) {
+        return expenseaccountRepository.save(expenseaccount);
+    }
+
+    public void deleteExpenseaccount(int id) {
+        expenseaccountRepository.deleteById(id);
+    }
     // Preferred Vendor
-    public List<Preferredvendor> getPreferredVendors() {
-        return preferredVendorRepository.findAll();
+    public List<Preferredvendor> getPreferredvendors() {
+        return preferredvendorRepository.findAll();
     }
 
-    public Preferredvendor addPreferredVendor(Preferredvendor preferredVendor) {
-        return preferredVendorRepository.save(preferredVendor);
+    public Preferredvendor addPreferredvendor(Preferredvendor preferredvendor) {
+        return preferredvendorRepository.save(preferredvendor);
     }
 
-    public void deletePreferredVendor(int id) {
-        preferredVendorRepository.deleteById(id);
+    public Preferredvendor updatePreferredvendor(Preferredvendor preferredvendor) {
+        return preferredvendorRepository.save(preferredvendor);
+    }
+
+    public void deletePreferredvendor(int id) {
+        preferredvendorRepository.deleteById(id);
     }
 }
-

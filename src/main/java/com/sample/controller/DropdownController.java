@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/drop")
-/*@CrossOrigin(origins = "*")*/
+//@CrossOrigin(origins = "*")
 public class DropdownController {
 
     @Autowired
@@ -27,6 +27,12 @@ public class DropdownController {
         return dropdownService.addCategory(category);
     }
 
+    @PutMapping("/updatecategories/{id}")
+    public Category updateCategory(@PathVariable int id, @RequestBody Category category) {
+        category.setId(id); // Assuming Category entity has setId method
+        return dropdownService.updateCategory(category);
+    }
+
     @DeleteMapping("/deletecategories/{id}")
     public void deleteCategory(@PathVariable int id) {
         dropdownService.deleteCategory(id);
@@ -34,65 +40,90 @@ public class DropdownController {
 
     // Asset Account
     @GetMapping("/getassetAccounts")
-    public List<Assetaccount> getAssetAccounts() {
-        return dropdownService.getAssetAccounts();
+    public List<Assetaccount> getAssetaccounts() {
+        return dropdownService.getAssetaccounts();
     }
 
     @PostMapping("/addassetAccounts")
-    public Assetaccount addAssetAccount(@RequestBody Assetaccount assetAccount) {
-        return dropdownService.addAssetAccount(assetAccount);
+    public Assetaccount addAssetaccount(@RequestBody Assetaccount assetaccount) {
+        return dropdownService.addAssetaccount(assetaccount);
+    }
+
+    @PutMapping("/updateassetAccounts/{id}")
+    public Assetaccount updateAssetaccount(@PathVariable int id, @RequestBody Assetaccount assetaccount) {
+        assetaccount.setId(id); // Assuming Assetaccount entity has setId method
+        return dropdownService.updateAssetAccount(assetaccount);
     }
 
     @DeleteMapping("/deleteassetAccounts/{id}")
-    public void deleteAssetAccount(@PathVariable int id) {
-        dropdownService.deleteAssetAccount(id);
+    public void deleteAssetaccount(@PathVariable int id) {
+        dropdownService.deleteAssetaccount(id);
     }
 
     // Income Account
     @GetMapping("/getincomeAccounts")
-    public List<Incomeaccount> getIncomeAccounts() {
-        return dropdownService.getIncomeAccounts();
+    public List<Incomeaccount> getIncomeaccounts() {
+        return dropdownService.getIncomeaccounts();
     }
 
     @PostMapping("/addincomeAccounts")
-    public Incomeaccount addIncomeAccount(@RequestBody Incomeaccount incomeAccount) {
-        return dropdownService.addIncomeAccount(incomeAccount);
+    public Incomeaccount addIncomeAccount(@RequestBody Incomeaccount incomeaccount) {
+        return dropdownService.addIncomeaccount(incomeaccount);
+    }
+
+    @PutMapping("/updateincomeAccounts/{id}")
+    public Incomeaccount updateIncomeaccount(@PathVariable int id, @RequestBody Incomeaccount incomeaccount) {
+        incomeaccount.setId(id); // Assuming Incomeaccount entity has setId method
+        return dropdownService.updateIncomeaccount(incomeaccount);
     }
 
     @DeleteMapping("/deleteincomeAccounts/{id}")
-    public void deleteIncomeAccount(@PathVariable int id) {
-        dropdownService.deleteIncomeAccount(id);
+    public void deleteIncomeaccount(@PathVariable int id) {
+        dropdownService.deleteIncomeaccount(id);
     }
 
     // Expense Account
     @GetMapping("/getexpenseAccounts")
     public List<Expenseaccount> getExpenseAccounts() {
-        return dropdownService.getExpenseAccounts();
+        return dropdownService.getExpenseaccounts();
     }
 
     @PostMapping("/addexpenseAccounts")
-    public Expenseaccount addExpenseAccount(@RequestBody Expenseaccount expenseAccount) {
-        return dropdownService.addExpenseAccount(expenseAccount);
+    public Expenseaccount addExpenseaccount(@RequestBody Expenseaccount expenseaccount) {
+        return dropdownService.addExpenseaccount(expenseaccount);
     }
 
+    @PutMapping("/updateexpenseAccounts/{id}")
+    public Expenseaccount updateExpenseaccount(@PathVariable int id, @RequestBody Expenseaccount expenseaccount) {
+        expenseaccount.setId(id); // Assuming Expenseaccount entity has setId method
+        return dropdownService.updateExpenseaccount(expenseaccount);
+    }
+
+
     @DeleteMapping("/deleteexpenseAccounts/{id}")
-    public void deleteExpenseAccount(@PathVariable int id) {
-        dropdownService.deleteExpenseAccount(id);
+    public void deleteExpenseaccount(@PathVariable int id) {
+        dropdownService.deleteExpenseaccount(id);
     }
 
     // Preferred Vendor
     @GetMapping("/getpreferredVendors")
     public List<Preferredvendor> getPreferredVendors() {
-        return dropdownService.getPreferredVendors();
+        return dropdownService.getPreferredvendors();
     }
 
     @PostMapping("/addpreferredVendors")
     public Preferredvendor addPreferredVendor(@RequestBody Preferredvendor preferredVendor) {
-        return dropdownService.addPreferredVendor(preferredVendor);
+        return dropdownService.addPreferredvendor(preferredVendor);
+    }
+
+    @PutMapping("/updatepreferredVendors/{id}")
+    public Preferredvendor updatePreferredvendor(@PathVariable int id, @RequestBody Preferredvendor preferredvendor) {
+        preferredvendor.setId(id); // Assuming Preferredvendor entity has setId method
+        return dropdownService.updatePreferredvendor(preferredvendor);
     }
 
     @DeleteMapping("/deletepreferredVendors/{id}")
-    public void deletePreferredVendor(@PathVariable int id) {
-        dropdownService.deletePreferredVendor(id);
+    public void deletePreferredvendor(@PathVariable int id) {
+        dropdownService.deletePreferredvendor(id);
     }
 }

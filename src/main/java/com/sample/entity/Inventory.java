@@ -1,7 +1,6 @@
 package com.sample.entity;
 
 import jakarta.persistence.Entity;
-
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,29 +22,46 @@ public class Inventory {
     private double salestax;
     private String purchasinginformation;
     private double cost;
-    private int categoryid;
-    private int assetaccountid;
+    private String category_id;
+    private String expense_account_id;
     
+    
+    public String getExpense_account_id() {
+		return expense_account_id;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+	public void setExpense_account_id(String expense_account_id) {
+		this.expense_account_id = expense_account_id;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "asset_account_id")
-    private Assetaccount assetAccount;
+	public String getAsset_account_id() {
+		return asset_account_id;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "income_account_id")
-    private Incomeaccount incomeAccount;
+	public void setAsset_account_id(String asset_account_id) {
+		this.asset_account_id = asset_account_id;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "expense_account_id")
-    private Expenseaccount expenseAccount;
+	public String getIncome_account_id() {
+		return income_account_id;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "preferred_vendor_id")
-    private Preferredvendor preferredVendor;
+	public void setIncome_account_id(String income_account_id) {
+		this.income_account_id = income_account_id;
+	}
+
+	public String getPreferred_vendor_id() {
+		return preferred_vendor_id;
+	}
+
+	public void setPreferred_vendor_id(String preferred_vendor_id) {
+		this.preferred_vendor_id = preferred_vendor_id;
+	}
+
+	private String asset_account_id;
+    private String income_account_id;
+    private String preferred_vendor_id;
+
 
     // Getters and setters
     public int getId() {
@@ -130,72 +146,26 @@ public class Inventory {
 
     public double getCost() {
         return cost;
-    }
+   }
 
     public void setCost(double cost) {
         this.cost = cost;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-	public Assetaccount getAssetAccount() {
-		return assetAccount;
+	public String getCategory_id() {
+		return category_id;
 	}
 
-	public void setAssetAccount(Assetaccount assetAccount) {
-		this.assetAccount = assetAccount;
-	}
-
-
-    public Incomeaccount getIncomeAccount() {
-		return incomeAccount;
-	}
-
-	public void setIncomeAccount(Incomeaccount incomeAccount) {
-		this.incomeAccount = incomeAccount;
-	}
-
-	public Expenseaccount getExpenseAccount() {
-		return expenseAccount;
-	}
-
-	public void setExpenseAccount(Expenseaccount expenseAccount) {
-		this.expenseAccount = expenseAccount;
-	}
-
-	public Preferredvendor getPreferredVendor() {
-		return preferredVendor;
-	}
-
-	public void setPreferredVendor(Preferredvendor preferredVendor) {
-		this.preferredVendor = preferredVendor;
-	}
-
-	public int getCategoryid() {
-		return categoryid;
-	}
-
-	public void setCategoryid(int categoryid) {
-		this.categoryid = categoryid;
-	}
-
-	public int getAssetaccountid() {
-		return assetaccountid;
-	}
-
-	public void setAssetaccountid(int assetaccountid) {
-		this.assetaccountid = assetaccountid;
+	public void setCategory_id(String category_id) {
+		this.category_id = category_id;
 	}
 
 	
 	
+	
+
+   
+    
 }
-
 
 

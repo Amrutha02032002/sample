@@ -13,23 +13,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.sample.entity.Inventory;
 import com.sample.service.InventoryService;
+import com.sample.entity.ReqBody;
 
 @RestController
 @RequestMapping("/inventory")
-/*@CrossOrigin(origins = "*")*/
+//@CrossOrigin(origins = "*")
 public class InventoryController {
     
     @Autowired
     private InventoryService inventoryService;
     
-    @GetMapping("/get")
+    @GetMapping("/getdata")
     public List<Inventory> getAllInventoryData() {
         return inventoryService.getAllInventories();
     }
     
-    @PostMapping("/addinventorydata")
-    public void addInventory(@RequestBody Inventory inventory) {
-    	System.out.println(inventory);
+    @PostMapping("/addinventory")
+    public void addInventory(@RequestBody ReqBody inventory) {
         inventoryService.addInventory(inventory);
     }
     
@@ -43,5 +43,3 @@ public class InventoryController {
         inventoryService.deleteInventory(id);
     }
 }
-
-
