@@ -126,4 +126,26 @@ public class DropdownController {
     public void deletePreferredvendor(@PathVariable int id) {
         dropdownService.deletePreferredvendor(id);
     }
+    
+ // Type
+    @GetMapping("/gettype")
+    public List<Type> getTypes() {
+        return dropdownService.getTypes();
+    }
+
+    @PostMapping("/addtypes")
+    public Type addType(@RequestBody Type type) {
+        return dropdownService.addType(type);
+    }
+
+    @PutMapping("/updatetypes/{id}")
+    public Type updateTpe(@PathVariable int id, @RequestBody Type type) {
+        type.setId(id); 
+        return dropdownService.updateType(type);
+    }
+
+    @DeleteMapping("/deletetypes/{id}")
+    public void deleteType(@PathVariable int id) {
+        dropdownService.deleteType(id);
+    }
 }

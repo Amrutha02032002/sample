@@ -24,9 +24,13 @@ public class Inventory {
     private double cost;
     private String category_id;
     private String expense_account_id;
+    private String type;
+    private String asset_account_id;
+    private String income_account_id;
+    private String preferred_vendor_id;
+
     
-    
-    public String getExpense_account_id() {
+	public String getExpense_account_id() {
 		return expense_account_id;
 	}
 
@@ -58,9 +62,7 @@ public class Inventory {
 		this.preferred_vendor_id = preferred_vendor_id;
 	}
 
-	private String asset_account_id;
-    private String income_account_id;
-    private String preferred_vendor_id;
+	
 
 
     // Getters and setters
@@ -160,6 +162,16 @@ public class Inventory {
 		this.category_id = category_id;
 	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	
+
 	
 	
 	
@@ -167,5 +179,10 @@ public class Inventory {
    
     
 }
+
+
+
+
+
 
 

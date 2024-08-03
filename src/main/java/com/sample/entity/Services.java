@@ -1,6 +1,7 @@
 package com.sample.entity;
 
 import jakarta.persistence.Entity;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,12 +13,12 @@ public class Services {
 	int id;
 	String name;
 	String sku;
-	String category;
 	String description;
 	double salesprice;
-	String incomeaccount;
 	double salestax;
-	String purchasinginformation;
+	//String purchasinginformation;
+	private String category_id;
+	private String income_account_id;
 	
 	public int getId() {
 		return id;
@@ -37,12 +38,8 @@ public class Services {
 	public void setSku(String sku) {
 		this.sku = sku;
 	}
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
+	
+	
 	public String getDescription() {
 		return description;
 	}
@@ -55,25 +52,26 @@ public class Services {
 	public void setSalesprice(double salesprice) {
 		this.salesprice = salesprice;
 	}
-	public String getIncomeaccount() {
-		return incomeaccount;
-	}
-	public void setIncomeaccount(String incomeaccount) {
-		this.incomeaccount = incomeaccount;
-	}
+	
 	public double getSalestax() {
 		return salestax;
 	}
 	public void setSalestax(double salestax) {
 		this.salestax = salestax;
 	}
-	public String getPurchasinginformation() {
-		return purchasinginformation;
+	public String getCategory_id() {
+		return category_id;
 	}
-	public void setPurchasinginformation(String purchasinginformation) {
-		this.purchasinginformation = purchasinginformation;
+	public void setCategory_id(String category_id) {
+		this.category_id = category_id;
 	}
-	
+	public String getIncome_account_id() {
+		return income_account_id;
+	}
+	public void setIncome_account_id(String income_account_id) {
+		this.income_account_id = income_account_id;
+	}
+
 	
 
 }

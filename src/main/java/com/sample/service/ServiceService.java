@@ -2,17 +2,18 @@ package com.sample.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sample.entity.Services;
-import com.sample.repository.ServiceRepository;
+import com.sample.repository.ServicesRepository;
 
 @Service
 public class ServiceService {
 	
 	@Autowired
-	private ServiceRepository serviceRepo;
+	private ServicesRepository serviceRepo;
 	
 	/*Read operation*/
 	public List<Services> getAllServices(){
@@ -22,7 +23,7 @@ public class ServiceService {
 	/*create operation*/
 public void addServices(Services services) {
 	serviceRepo.save(services);
-	System.out.println("customer data added sucessfully");
+	System.out.println("Service data added sucessfully");
 }
 
 /*update operation*/
@@ -32,12 +33,12 @@ public void updateService(Services updatedService, int id) {
 	if(existingServices !=null) {
 		existingServices.setName(updatedService.getName());
 		existingServices.setSku(updatedService.getSku());
-		existingServices.setCategory(updatedService.getCategory());
+		existingServices.setCategory_id(updatedService.getCategory_id());
 		existingServices.setDescription(updatedService.getDescription());
 		existingServices.setSalesprice(updatedService.getSalesprice());
-		existingServices.setIncomeaccount(updatedService.getIncomeaccount());
+		existingServices.setIncome_account_id(updatedService.getIncome_account_id());
 		existingServices.setSalestax(updatedService.getSalestax());
-		existingServices.setPurchasinginformation(updatedService.getPurchasinginformation());
+		//existingServices.setPurchasinginformation(updatedService.getPurchasinginformation());
 		serviceRepo.save(existingServices);
 		System.out.println("service data updated successfully");		
 	}		
@@ -47,7 +48,7 @@ public void updateService(Services updatedService, int id) {
 
 public void deleteService(int id) {
 	serviceRepo.deleteById(id);
-	System.out.println("Inventory Data Deleted Successfully");
+	System.out.println("Service Data Deleted Successfully");
 
 }
 }

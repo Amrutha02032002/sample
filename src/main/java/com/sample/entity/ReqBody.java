@@ -1,5 +1,7 @@
 package com.sample.entity;
 
+import java.util.List;
+
 public class ReqBody {
 	private String asset_account_id;
 	public String getAsset_account_id() {
@@ -7,6 +9,13 @@ public class ReqBody {
 	}
 	public void setAsset_account_id(String asset_account_id) {
 		this.asset_account_id = asset_account_id;
+	}
+	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	public String getCategory_id() {
 		return category_id;
@@ -106,6 +115,34 @@ public class ReqBody {
 	private String salesprice;
 	private String salestax;
 	private String sku;
+	private String type;
+	private String qty;
+	private String product;
+	private String products_id;
+	
+	
+	
+	public String getProducts_id() {
+		return products_id;
+	}
+	public void setProducts_id(String products_id) {
+		this.products_id = products_id;
+	}
+	public String getProduct() {
+		return product;
+	}
+	public void setProduct(String product) {
+		this.product = product;
+	}
+	public String getQty() {
+		return qty;
+	}
+	public void setQty(String qty) {
+		this.qty = qty;
+	}
+	
+	
+	
 		
 
 }

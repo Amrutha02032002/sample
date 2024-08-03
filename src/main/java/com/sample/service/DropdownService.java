@@ -24,6 +24,9 @@ public class DropdownService {
 
     @Autowired
     private PreferredvendorRepository preferredvendorRepository;
+    
+    @Autowired
+    private TypeRepository typeRepository;
 
     // Category
     public List<Category> getCategories() {
@@ -107,5 +110,22 @@ public class DropdownService {
 
     public void deletePreferredvendor(int id) {
         preferredvendorRepository.deleteById(id);
+    }
+    
+    //Type
+    public List<Type> getTypes() {
+        return typeRepository.findAll();
+    }
+
+    public Type addType(Type type) {
+        return typeRepository.save(type);
+    }
+
+    public Type updateType(Type type) {
+        return typeRepository.save(type);
+    }
+
+    public void deleteType(int id) {
+        typeRepository.deleteById(id);
     }
 }
