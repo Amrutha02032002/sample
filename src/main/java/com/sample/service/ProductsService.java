@@ -1,33 +1,30 @@
 package com.sample.service;
 
-import com.sample.entity.Inventory;
 import com.sample.entity.Products;
-import com.sample.entity.ReqBody;
 import com.sample.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductsService {
 
     @Autowired
     private ProductsRepository productsRepository;
-
-    
+   
         /*Read operation*/
         public List<Products> getAllProducts() {
             return productsRepository.findAll();
         }
-    
-      
+         
         /*Create operation*/
         public void addProducts(Products products) {
             Products newProducts = new Products();
-            newProducts.setProduct(products.getProduct());
+            newProducts.setName(products.getName());
+            newProducts.setDescription(products.getDescription());
             newProducts.setQty(products.getQty());
+            newProducts.setSalesprice(products.getSalesprice());
+            newProducts.setAmount(products.getAmount());
             productsRepository.save(newProducts);
             
             System.out.println("Products data added successfully");
@@ -39,8 +36,11 @@ public class ProductsService {
             
             if (existingProducts != null) {
             	
-				existingProducts.setProduct(updatedProducts.getProduct());
+				existingProducts.setName(updatedProducts.getName());
+				existingProducts.setDescription(updatedProducts.getDescription());
 				existingProducts.setQty(updatedProducts.getQty());
+				existingProducts.setSalesprice(updatedProducts.getSalesprice());
+				existingProducts.setAmount(updatedProducts.getAmount());
                
             	productsRepository.save(existingProducts);
                 System.out.println("Products data updated successfully");
@@ -55,7 +55,3 @@ public class ProductsService {
 
     }
 }
-
-
-
-

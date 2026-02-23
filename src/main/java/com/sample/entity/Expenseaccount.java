@@ -12,7 +12,8 @@ public class Expenseaccount {
     private int id;
     private String name;
 
-   
+   // Getters & Setters
+    
     public int getId() {
         return id;
     }

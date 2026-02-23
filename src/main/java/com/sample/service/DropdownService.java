@@ -1,11 +1,12 @@
 package com.sample.service;
 
 import com.sample.entity.*;
+
 import com.sample.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DropdownService {
@@ -29,6 +30,32 @@ public class DropdownService {
     private TypeRepository typeRepository;
 
     // Category
+    
+    //Post Api To Add Only Category Details only
+    public Category addCategory(CategoryDTO2 categoryDTO2) {
+        Category category = new Category();
+        category.setName(categoryDTO2.getName());
+        category.setCreateddate(categoryDTO2.getCreateddate());
+        category.setCreatedby(categoryDTO2.getCreatedby());
+        return categoryRepository.save(category);
+    }
+    
+    // Post Api To Display Only ID AND NAMES LIST
+    public List<CategoryDTO3> getCategoryIdAndNames() {
+        List<Category> categories = categoryRepository.findAll();
+        return categories.stream()
+                .map(category -> new CategoryDTO3(category.getId(), category.getName()))
+                .collect(Collectors.toList());
+    }
+    
+ // Post Api To Display List Of Category Details
+    public List<CategoryDTO4> getAllCategories() {
+        List<Category> categories = categoryRepository.findAll();
+        return categories.stream()
+                .map(category -> new CategoryDTO4(category.getId(), category.getName(), category.getCreateddate(), category.getCreatedby()))
+                .collect(Collectors.toList());
+    }
+    
     public List<Category> getCategories() {
         return categoryRepository.findAll();
     }
@@ -128,4 +155,6 @@ public class DropdownService {
     public void deleteType(int id) {
         typeRepository.deleteById(id);
     }
+
+
 }

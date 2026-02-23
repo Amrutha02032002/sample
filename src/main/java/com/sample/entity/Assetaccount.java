@@ -12,7 +12,7 @@ public class Assetaccount {
     private int id;
     private String name;
 
-   
+   //Getters & Setters
     public int getId() {
         return id;
     }
@@ -29,4 +29,3 @@ public class Assetaccount {
         this.name = name;
     }
 }
-

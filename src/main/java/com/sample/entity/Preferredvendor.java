@@ -1,6 +1,7 @@
 package com.sample.entity;
 
 import jakarta.persistence.Entity;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,6 +13,7 @@ public class Preferredvendor {
     private int id;
     private String name;
 
+    // Getters and Setters
     
     public int getId() {
         return id;

@@ -1,11 +1,8 @@
 package com.sample.service;
 
 import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.sample.entity.Services;
 import com.sample.repository.ServicesRepository;
 
@@ -21,13 +18,13 @@ public class ServiceService {
 	}
 	
 	/*create operation*/
-public void addServices(Services services) {
+    public void addServices(Services services) {
 	serviceRepo.save(services);
 	System.out.println("Service data added sucessfully");
-}
+    }
 
-/*update operation*/
-public void updateService(Services updatedService, int id) {
+    /*update operation*/
+    public void updateService(Services updatedService, int id) {
 	Services existingServices=serviceRepo.findById(id).orElse(null);
 	
 	if(existingServices !=null) {
@@ -38,17 +35,15 @@ public void updateService(Services updatedService, int id) {
 		existingServices.setSalesprice(updatedService.getSalesprice());
 		existingServices.setIncome_account_id(updatedService.getIncome_account_id());
 		existingServices.setSalestax(updatedService.getSalestax());
-		//existingServices.setPurchasinginformation(updatedService.getPurchasinginformation());
 		serviceRepo.save(existingServices);
 		System.out.println("service data updated successfully");		
 	}		
 }
 
 /*Delete operation*/
-
 public void deleteService(int id) {
 	serviceRepo.deleteById(id);
 	System.out.println("Service Data Deleted Successfully");
-
 }
+
 }

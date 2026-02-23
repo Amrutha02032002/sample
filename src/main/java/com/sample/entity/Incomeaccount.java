@@ -12,6 +12,7 @@ public class Incomeaccount {
     private int id;
     private String name;
 
+    // Getters & Setters
     
     public int getId() {
         return id;
